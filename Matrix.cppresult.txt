@@ -1,5 +1,15 @@
 In file included from cur.cpp:16:0:
-ruslan/Matrix.cpp:273:1: error: unterminated comment
- /*int main()
- ^
+ruslan/Matrix.cpp: In member function 'Matrix Matrix::operator/(Matrix)':
+ruslan/Matrix.cpp:120:28: error: cannot convert 'Matrix' to 'double' for argument '1' to 'double pow(double, double)'
+    return *this * pow(a, -1);
+                            ^
+ruslan/Matrix.cpp: In member function 'Matrix Matrix::reverse()':
+ruslan/Matrix.cpp:233:8: error: no match for 'operator/' (operand types are 'Matrix' and 'double')
+   c = c/det;
+        ^
+ruslan/Matrix.cpp:233:8: note: candidate is:
+ruslan/Matrix.cpp:116:9: note: Matrix Matrix::operator/(Matrix)
+  Matrix operator /(Matrix a)
+         ^
+ruslan/Matrix.cpp:116:9: note:   no known conversion for argument 1 from 'double' to 'Matrix'
 ./check.sh: line 24: ./a.out: No such file or directory
