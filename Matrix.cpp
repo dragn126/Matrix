@@ -269,17 +269,3 @@ ostream& operator <<(ostream &o, Matrix& a)
 	}
 	return o;
 }
-int main()
-{
-	Matrix c;
-	cin >> c;
-	cout << c;
-	cout << c.transpose();
-	cout << c.determinant() << endl;
-	cout << c.reverse();
-	cout << c + c;
-	cout << c - c;
-	cout << c * 3;
-	cout << c;
-	system("pause");
-}
