@@ -125,11 +125,11 @@ public:
 	}
 	int getM()
 	{
-		return m;
+		return n;
 	}
 	int getN()
 	{
-		return n;
+		return m;
 	}
 	Matrix operator * (Matrix a)
 	{
