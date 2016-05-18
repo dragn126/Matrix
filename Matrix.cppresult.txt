@@ -28,6 +28,36 @@ index: 3
 [ RUN      ] MatrixTest.Transpose
 cur.cpp:78: Failure
 Value of: (int)(c.get(i,j)+0.5)
+  Actual: 3
+Expected: (int)(cc++)
+Which is: 1
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 6
+Expected: (int)(cc++)
+Which is: 2
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 1
+Expected: (int)(cc++)
+Which is: 3
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 7
+Expected: (int)(cc++)
+Which is: 5
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 2
+Expected: (int)(cc++)
+Which is: 6
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 5
+Expected: (int)(cc++)
+Which is: 7
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
   Actual: 0
 Expected: (int)(cc++)
 Which is: 9
