@@ -284,3 +284,4 @@ cout << c * 3;
 cout << c;
 system("pause");
 }
+*/
