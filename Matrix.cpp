@@ -46,7 +46,7 @@ public:
 		}
 		else
 		{
-			data = NULL;
+			data = a.data;
 		}
 	}
 	Matrix operator = (Matrix a)
@@ -65,7 +65,7 @@ public:
 		}
 		else
 		{
-			data = NULL;
+			data = a.data;
 		}
 		return *this;
 	}
@@ -79,29 +79,28 @@ public:
 	}
 	Matrix operator + (Matrix a)
 	{
-		Matrix c;
 		if (n == a.n && m == a.m && !(failed()) && !(a.failed()))
 		{
-			c = Matrix(n, m);
 			for (int i = 0; i < n*m; i++)
 			{
-				c.data[i] = data[i] + a.data[i];
+				a.data[i] += data[i];
 			}
+			return a;
 		}
-		return Matrix(c);
+		return Matrix();
 	}
 	Matrix operator * (double a)
 	{
-		Matrix c;
 		if (!(failed()))
 		{
-			c = Matrix(n, m);
+			Matrix c(n,m);
 			for (int i = 0; i < m*n; i++)
 			{
 				c.data[i] = data[i] * a;
 			}
+			return c;
 		}
-		return Matrix(c);
+		return Matrix();
 	}
 	Matrix operator -(Matrix a)
 	{
@@ -111,8 +110,7 @@ public:
 		}
 		else
 		{
-			Matrix c(0, 0, NULL);
-			return c;
+			return Matrix();
 		}
 	}
 	double get(int i, int j)const
@@ -133,10 +131,9 @@ public:
 	}
 	Matrix operator * (Matrix a)
 	{
-		Matrix c;
 		if (!(failed()) && !(a.failed()) && m == a.n)
 		{
-			c = Matrix(n, a.m);
+			Matrix c(n, a.m);
 			for (int i = 0; i < n; i++)
 			{
 				for (int j = 0; j < a.m; j++)
@@ -150,14 +147,13 @@ public:
 				}
 			}
 		}
-		return Matrix(c);
+		return Matrix();
 	}
 	Matrix GetMinor_(int i, int j)
 	{
-		Matrix c;
 		if (n != 1 && m != 1 && !(failed()))
 		{
-			c = Matrix(n - 1, m - 1);
+			Matrix c(n - 1, m - 1);
 			for (int z = 0; z < i; z++)
 			{
 				for (int x = 0; x < j; x++)
@@ -181,7 +177,7 @@ public:
 				}
 			}
 		}
-		return Matrix(c);
+		return Matrix();
 	}
 	double determinant()
 	{
@@ -196,10 +192,9 @@ public:
 	}
 	Matrix transpose()
 	{
-		Matrix c;
 		if (!(failed()))
 		{
-			c = Matrix(n, m);
+			Matrix c(n, m);
 			for (int i = 0; i < n; i++)
 			{
 				for (int j = 0; j < m; j++)
@@ -207,8 +202,9 @@ public:
 					c.set(j, i, this->get(i, j));
 				}
 			}
+			return c;
 		}
-		return Matrix(c);
+		return Matrix();
 	}
 	Matrix reverse()
 	{
@@ -217,7 +213,7 @@ public:
 		double det = determinant();
 		if (det == 0)
 			return *this;
-		Matrix c(n, m, new double[n*m]);
+		Matrix c(n, m);
 		for (int j = 0; j < n; j++)
 			for (int i = 0; i < m; i++)
 			{
@@ -272,4 +268,19 @@ ostream& operator <<(ostream &o, Matrix& a)
 		o << '\n' << endl;
 	}
 	return o;
+}
+
+/*int main()
+{
+Matrix c;
+cin >> c;
+cout << c;
+cout << c.transpose();
+cout << c.determinant() << endl;
+cout << c.reverse();
+cout << c + c;
+cout << c - c;
+cout << c * 3;
+cout << c;
+system("pause");
 }
