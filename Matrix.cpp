@@ -14,11 +14,25 @@ public:
 		m = 0;
 		data = NULL;
 	}
-	Matrix(int _m, int _n, double * _data)
+	Matrix(int _m, int _n)
 	{
 		m = _m;
 		n = _n;
-		data = _data;
+		data = new double[n*m];
+		for (int i = 0;i<n*m;i++)
+		{
+			data[i] = 0;
+		}
+	}
+	Matrix(int _m, int _n, double*  _data)
+	{
+		m = _m;
+		n = _n;
+		data=new double[n*m];
+		for(int i = 0;i<n*m;i++)
+		{
+		data[i] = _data[i];
+		}
 	}
 	Matrix(const Matrix& a)
 	{
@@ -35,7 +49,7 @@ public:
 			data = NULL;
 		}
 	}
-	Matrix& operator = (const Matrix& a)
+	Matrix operator = (Matrix a)
 	{
 		if (data != NULL)
 		{
@@ -57,18 +71,18 @@ public:
 	}
 	~Matrix()
 	{
-		delete[] this->data;
+		delete[] data;
 	}
 	bool failed()
 	{
-	  return (n <= 0 || m <= 0 || data == NULL);
+		return (n <= 0 || m <= 0 || data == NULL);
 	}
-	Matrix operator + (Matrix& a)
+	Matrix operator + (Matrix a)
 	{
 		Matrix c;
 		if (n == a.n && m == a.m && !(failed()) && !(a.failed()))
 		{
-			c=Matrix(n,m, new double[n * m]);
+			c = Matrix(n, m);
 			for (int i = 0; i < n*m; i++)
 			{
 				c.data[i] = data[i] + a.data[i];
@@ -81,7 +95,7 @@ public:
 		Matrix c;
 		if (!(failed()))
 		{
-			c=Matrix(n,m, new double[n*m]);
+			c = Matrix(n, m);
 			for (int i = 0; i < m*n; i++)
 			{
 				c.data[i] = data[i] * a;
@@ -117,12 +131,12 @@ public:
 	{
 		return n;
 	}
-	Matrix operator * (Matrix& a)
+	Matrix operator * (Matrix a)
 	{
 		Matrix c;
 		if (!(failed()) && !(a.failed()) && m == a.n)
 		{
-			c =Matrix(n, a.m, new double[n*a.m]);
+			c = Matrix(n, a.m);
 			for (int i = 0; i < n; i++)
 			{
 				for (int j = 0; j < a.m; j++)
@@ -143,7 +157,7 @@ public:
 		Matrix c;
 		if (!(failed()))
 		{
-			c = Matrix(n, m, new double[n*m]);
+			c = Matrix(n, m);
 			for (int i = 0; i < n; i++)
 			{
 				for (int j = 0; j < m; j++)
@@ -159,7 +173,7 @@ public:
 		Matrix c;
 		if (n != 1 && m != 1 && !(failed()))
 		{
-			c=Matrix(n-1,m-1, new double[(n-1)*(m-1)]);
+			c = Matrix(n - 1, m - 1);
 			for (int z = 0; z < i; z++)
 			{
 				for (int x = 0; x < j; x++)
@@ -204,8 +218,8 @@ public:
 		if (det == 0)
 			return *this;
 		Matrix c(n, m, new double[n*m]);
-		for (int i=0; i < n; i++)
-			for (int j=0; j < m; j++)
+		for (int i = 0; i < n; i++)
+			for (int j = 0; j < m; j++)
 			{
 				c.set(i, j, powf(-1, i + j) * GetMinor_(j, i).determinant());
 			}
