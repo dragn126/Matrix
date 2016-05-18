@@ -113,6 +113,17 @@ public:
 			return Matrix();
 		}
 	}
+	Matrix operator /(Matrix a)
+	{
+		if (n == a.n && m == a.m && !(failed()) && !(a.failed()))
+		{
+			return *this * pow(a, -1);
+		}
+		else
+		{
+			return Matrix();
+		}
+	}
 	double get(int i, int j)const
 	{
 		return data[i + j*n];
@@ -219,7 +230,7 @@ public:
 			{
 				c.set(j, i, powf(-1, i + j) * GetMinor_(j, i).determinant());
 			}
-		c = c*pow(det, -1);
+		c = c/det;
 		return Matrix(c);
 	}
 	friend istream& operator >>(istream &i, Matrix& a);
