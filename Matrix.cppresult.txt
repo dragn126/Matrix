@@ -1,12 +1,89 @@
-cur.cpp: In member function 'virtual void MatrixTest_Reverse_Test::TestBody()':
-cur.cpp:46:8: error: 'class Matrix' has no member named 'print'
-     m->print(cout);
-        ^
-cur.cpp:48:7: error: 'class Matrix' has no member named 'print'
-     c.print(cout);
-       ^
-cur.cpp: In member function 'virtual void MatrixTest_Read_Test::TestBody()':
-cur.cpp:114:7: error: 'class Matrix' has no member named 'read'
-     m.read(q);
-       ^
-./check.sh: line 24: ./a.out: No such file or directory
+[==========] Running 7 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 7 tests from MatrixTest
+[ RUN      ] MatrixTest.GetNM
+cur.cpp:23: Failure
+Value of: m->getM()
+  Actual: 4
+Expected: 3
+cur.cpp:24: Failure
+Value of: m->getN()
+  Actual: 3
+Expected: 4
+[  FAILED  ] MatrixTest.GetNM
+[ RUN      ] MatrixTest.Reverse
+1	2	3	4	
+
+0	1	2	3	
+
+0	0	1	2	
+
+0	0	0	1	
+
+1	-2	1	-0	
+
+-0	1	-2	1	
+
+0	-0	1	-2	
+
+-0	0	-0	1	
+
+index: 0
+index: 1
+index: 2
+index: 3
+[       OK ] MatrixTest.Reverse
+[ RUN      ] MatrixTest.Transpose
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 9
+Expected: (int)(cc++)
+Which is: 1
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 10
+Expected: (int)(cc++)
+Which is: 2
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 0
+Expected: (int)(cc++)
+Which is: 9
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: -2147483648
+Expected: (int)(cc++)
+Which is: 10
+cur.cpp:78: Failure
+Value of: (int)(c.get(i,j)+0.5)
+  Actual: 0
+Expected: (int)(cc++)
+Which is: 11
+[  FAILED  ] MatrixTest.Transpose
+[ RUN      ] MatrixTest.SetGet
+cur.cpp:92: Failure
+Value of: (int)(m->get(j,i)+0.5)
+  Actual: 9
+Expected: (int)(c++)
+Which is: 1
+cur.cpp:92: Failure
+Value of: (int)(m->get(j,i)+0.5)
+  Actual: 10
+Expected: (int)(c++)
+Which is: 2
+[  FAILED  ] MatrixTest.SetGet
+[ RUN      ] MatrixTest.FailedM
+[       OK ] MatrixTest.FailedM
+[ RUN      ] MatrixTest.Read
+[       OK ] MatrixTest.Read
+[ RUN      ] MatrixTest.Determinant
+[       OK ] MatrixTest.Determinant
+[----------] Global test environment tear-down
+[==========] 7 tests from 1 test case ran.
+[  PASSED  ] 4 tests.
+[  FAILED  ] 3 tests, listed below:
+[  FAILED  ] MatrixTest.GetNM
+[  FAILED  ] MatrixTest.Transpose
+[  FAILED  ] MatrixTest.SetGet
+
+ 3 FAILED TESTS
