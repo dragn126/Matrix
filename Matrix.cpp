@@ -28,10 +28,10 @@ public:
 	{
 		m = _m;
 		n = _n;
-		data=new double[n*m];
-		for(int i = 0;i<n*m;i++)
+		data = new double[n*m];
+		for (int i = 0;i<n*m;i++)
 		{
-		data[i] = _data[i];
+			data[i] = _data[i];
 		}
 	}
 	Matrix(const Matrix& a)
@@ -228,6 +228,25 @@ public:
 	}
 	friend istream& operator >>(istream &i, Matrix& a);
 	friend ostream& operator <<(ostream &o, Matrix& a);
+	void read(istream &i)
+	{
+		i >> m;
+		i >> n;
+		data = new double[m*n];
+		for (int j = 0; j < m*n; j++)
+			i >> data[j];
+	}
+	void print(ostream &o)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				o << get(j, i) << '\t';
+			}
+			o << '\n' << endl;
+		}
+	}
 };
 Matrix* get_init(int m, int n)
 {
