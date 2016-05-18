@@ -2,15 +2,7 @@
 [----------] Global test environment set-up.
 [----------] 7 tests from MatrixTest
 [ RUN      ] MatrixTest.GetNM
-cur.cpp:23: Failure
-Value of: m->getM()
-  Actual: 4
-Expected: 3
-cur.cpp:24: Failure
-Value of: m->getN()
-  Actual: 3
-Expected: 4
-[  FAILED  ] MatrixTest.GetNM
+[       OK ] MatrixTest.GetNM
 [ RUN      ] MatrixTest.Reverse
 1	2	3	4	
 
@@ -80,10 +72,9 @@ Which is: 2
 [       OK ] MatrixTest.Determinant
 [----------] Global test environment tear-down
 [==========] 7 tests from 1 test case ran.
-[  PASSED  ] 4 tests.
-[  FAILED  ] 3 tests, listed below:
-[  FAILED  ] MatrixTest.GetNM
+[  PASSED  ] 5 tests.
+[  FAILED  ] 2 tests, listed below:
 [  FAILED  ] MatrixTest.Transpose
 [  FAILED  ] MatrixTest.SetGet
 
- 3 FAILED TESTS
+ 2 FAILED TESTS
