@@ -93,7 +93,7 @@ public:
 	{
 		if (!(failed()))
 		{
-			Matrix c(n,m);
+			Matrix c(n, m);
 			for (int i = 0; i < m*n; i++)
 			{
 				c.data[i] = data[i] * a;
@@ -107,17 +107,6 @@ public:
 		if (n == a.n && m == a.m && !(failed()) && !(a.failed()))
 		{
 			return *this + a*(-1);
-		}
-		else
-		{
-			return Matrix();
-		}
-	}
-	Matrix operator /(Matrix a)
-	{
-		if (n == a.n && m == a.m && !(failed()) && !(a.failed()))
-		{
-			return *this * pow(a, -1);
 		}
 		else
 		{
@@ -162,9 +151,10 @@ public:
 	}
 	Matrix GetMinor_(int i, int j)
 	{
+		Matrix c;
 		if (n != 1 && m != 1 && !(failed()))
 		{
-			Matrix c(n - 1, m - 1);
+			c = Matrix(n - 1, m - 1);
 			for (int z = 0; z < i; z++)
 			{
 				for (int x = 0; x < j; x++)
@@ -188,7 +178,7 @@ public:
 				}
 			}
 		}
-		return Matrix();
+		return Matrix(c);
 	}
 	double determinant()
 	{
@@ -198,7 +188,7 @@ public:
 			return data[0];
 		double det = 0;
 		for (int i = 0; i < n; i++)
-			det += powf(-1, i)*data[i] * GetMinor_(0, i).determinant();
+			det += pow(-1, i)*data[i] * GetMinor_(0, i).determinant();
 		return det;
 	}
 	Matrix transpose()
@@ -210,7 +200,7 @@ public:
 			{
 				for (int j = 0; j < m; j++)
 				{
-					c.set(j, i, this->get(i, j));
+					c.set(j, i, get(i, j));
 				}
 			}
 			return c;
@@ -228,9 +218,8 @@ public:
 		for (int j = 0; j < n; j++)
 			for (int i = 0; i < m; i++)
 			{
-				c.set(j, i, powf(-1, i + j) * GetMinor_(j, i).determinant());
+				c.set(j, i, (pow(-1, i + j) * GetMinor_(j, i).determinant())/det);
 			}
-		c = c/det;
 		return Matrix(c);
 	}
 	friend istream& operator >>(istream &i, Matrix& a);
@@ -280,19 +269,17 @@ ostream& operator <<(ostream &o, Matrix& a)
 	}
 	return o;
 }
-
-/*int main()
+int main()
 {
-Matrix c;
-cin >> c;
-cout << c;
-cout << c.transpose();
-cout << c.determinant() << endl;
-cout << c.reverse();
-cout << c + c;
-cout << c - c;
-cout << c * 3;
-cout << c;
-system("pause");
+	Matrix c;
+	cin >> c;
+	cout << c;
+	cout << c.transpose();
+	cout << c.determinant() << endl;
+	cout << c.reverse();
+	cout << c + c;
+	cout << c - c;
+	cout << c * 3;
+	cout << c;
+	system("pause");
 }
-*/
