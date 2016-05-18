@@ -1,0 +1,233 @@
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp: In member function 'Matrix Matrix::operator-(Matrix)':
+ruslan/Matrix.cpp:96:17: error: no match for 'operator+' (operand types are 'Matrix' and 'Matrix')
+    return *this + a*(-1);
+                 ^
+ruslan/Matrix.cpp:96:17: note: candidates are:
+ruslan/Matrix.cpp:66:9: note: Matrix Matrix::operator+(Matrix&)
+  Matrix operator + (Matrix& a)
+         ^
+ruslan/Matrix.cpp:66:9: note:   no known conversion for argument 1 from 'Matrix' to 'Matrix&'
+In file included from /usr/include/g++/bits/stl_algobase.h:67:0,
+                 from /usr/include/g++/bits/char_traits.h:39,
+                 from /usr/include/g++/string:40,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/stl_iterator.h:333:5: note: template<class _Iterator> std::reverse_iterator<_Iterator> std::operator+(typename std::reverse_iterator<_Iterator>::difference_type, const std::reverse_iterator<_Iterator>&)
+     operator+(typename reverse_iterator<_Iterator>::difference_type __n,
+     ^
+/usr/include/g++/bits/stl_iterator.h:333:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'const std::reverse_iterator<_Iterator>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/bits/stl_algobase.h:67:0,
+                 from /usr/include/g++/bits/char_traits.h:39,
+                 from /usr/include/g++/string:40,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/stl_iterator.h:1118:5: note: template<class _Iterator> std::move_iterator<_Iterator> std::operator+(typename std::move_iterator<_Iterator>::difference_type, const std::move_iterator<_Iterator>&)
+     operator+(typename move_iterator<_Iterator>::difference_type __n,
+     ^
+/usr/include/g++/bits/stl_iterator.h:1118:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'const std::move_iterator<_Iterator>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:52:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.h:2365:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/g++/bits/basic_string.h:2365:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:53:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.tcc:692:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(const _CharT* __lhs,
+     ^
+/usr/include/g++/bits/basic_string.tcc:692:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   mismatched types 'const _CharT*' and 'Matrix'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:53:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.tcc:708:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(_CharT, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(_CharT __lhs, const basic_string<_CharT, _Traits, _Alloc>& __rhs)
+     ^
+/usr/include/g++/bits/basic_string.tcc:708:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:52:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.h:2402:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/g++/bits/basic_string.h:2402:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:52:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.h:2418:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, _CharT)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs, _CharT __rhs)
+     ^
+/usr/include/g++/bits/basic_string.h:2418:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:52:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.h:2430:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/include/g++/bits/basic_string.h:2430:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'std::basic_string<_CharT, _Traits, _Alloc>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:52:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.h:2436:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const std::basic_string<_CharT, _Traits, _Alloc>&, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/g++/bits/basic_string.h:2436:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:52:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.h:2442:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/include/g++/bits/basic_string.h:2442:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'std::basic_string<_CharT, _Traits, _Alloc>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:52:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.h:2454:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(const _CharT* __lhs,
+     ^
+/usr/include/g++/bits/basic_string.h:2454:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   mismatched types 'const _CharT*' and 'Matrix'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:52:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.h:2460:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(_CharT, std::basic_string<_CharT, _Traits, _Alloc>&&)
+     operator+(_CharT __lhs,
+     ^
+/usr/include/g++/bits/basic_string.h:2460:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'std::basic_string<_CharT, _Traits, _Alloc>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:52:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.h:2466:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, const _CharT*)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/include/g++/bits/basic_string.h:2466:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'std::basic_string<_CharT, _Traits, _Alloc>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/string:52:0,
+                 from /usr/include/g++/stdexcept:39,
+                 from /usr/include/g++/array:38,
+                 from /usr/include/g++/tuple:39,
+                 from /usr/include/g++/functional:55,
+                 from cur.cpp:5:
+/usr/include/g++/bits/basic_string.h:2472:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_string<_CharT, _Traits, _Alloc> std::operator+(std::basic_string<_CharT, _Traits, _Alloc>&&, _CharT)
+     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+     ^
+/usr/include/g++/bits/basic_string.h:2472:5: note:   template argument deduction/substitution failed:
+In file included from cur.cpp:16:0:
+ruslan/Matrix.cpp:96:24: note:   'Matrix' is not derived from 'std::basic_string<_CharT, _Traits, _Alloc>'
+    return *this + a*(-1);
+                        ^
+In file included from /usr/include/g++/vector:65:0,
+                 from /usr/pkg/include/gtest/gtest.h:55,
+                 from cur.cpp:14:
+/usr/include/g++/bits/stl_bvector.h:293:3: note: std::_Bit_iterator std::operator+(std::ptrdiff_t, const std::_Bit_iterator&)
+   operator+(ptrdiff_t __n, const _Bit_iterator& __x)
+   ^
+/usr/include/g++/bits/stl_bvector.h:293:3: note:   no known conversion for argument 1 from 'Matrix' to 'std::ptrdiff_t {aka int}'
+/usr/include/g++/bits/stl_bvector.h:379:3: note: std::_Bit_const_iterator std::operator+(std::ptrdiff_t, const std::_Bit_const_iterator&)
+   operator+(ptrdiff_t __n, const _Bit_const_iterator& __x)
+   ^
+/usr/include/g++/bits/stl_bvector.h:379:3: note:   no known conversion for argument 1 from 'Matrix' to 'std::ptrdiff_t {aka int}'
+cur.cpp: In member function 'virtual void MatrixTest_Reverse_Test::TestBody()':
+cur.cpp:46:8: error: 'class Matrix' has no member named 'print'
+     m->print(cout);
+        ^
+cur.cpp:48:7: error: 'class Matrix' has no member named 'print'
+     c.print(cout);
+       ^
+cur.cpp: In member function 'virtual void MatrixTest_Read_Test::TestBody()':
+cur.cpp:114:7: error: 'class Matrix' has no member named 'read'
+     m.read(q);
+       ^
+./check.sh: line 24: ./a.out: No such file or directory
