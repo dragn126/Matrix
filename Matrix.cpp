@@ -187,7 +187,7 @@ public:
 			return data[0];
 		double det = 0;
 		for (int i = 0; i < n; i++)
-			det = det + powf(-1, i)*data[i] * GetMinor_(0, i).determinant();
+			det += powf(-1, i)*data[i] * GetMinor_(0, i).determinant();
 		return det;
 	}
 	Matrix transpose()
