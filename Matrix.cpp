@@ -117,11 +117,11 @@ public:
 	}
 	double get(int i, int j)const
 	{
-		return data[i*n + j];
+		return data[i + j*n];
 	}
 	void set(int i, int j, double _data)
 	{
-		data[i*n + j] = _data;
+		data[i + j*n] = _data;
 	}
 	int getM()
 	{
@@ -152,23 +152,7 @@ public:
 		}
 		return Matrix(c);
 	}
-	Matrix transpose()
-	{
-		Matrix c;
-		if (!(failed()))
-		{
-			c = Matrix(n, m);
-			for (int i = 0; i < n; i++)
-			{
-				for (int j = 0; j < m; j++)
-				{
-					c.set(i, j, this->get(j, i));
-				}
-			}
-		}
-		return Matrix(c);
-	}
-	Matrix GetMinor_(int j, int i)
+	Matrix GetMinor_(int i, int j)
 	{
 		Matrix c;
 		if (n != 1 && m != 1 && !(failed()))
@@ -210,6 +194,22 @@ public:
 			det = det + powf(-1, i)*data[i] * GetMinor_(0, i).determinant();
 		return det;
 	}
+	Matrix transpose()
+	{
+		Matrix c;
+		if (!(failed()))
+		{
+			c = Matrix(n, m);
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < m; j++)
+				{
+					c.set(i, j, this->get(j, i));
+				}
+			}
+		}
+		return Matrix(c);
+	}
 	Matrix reverse()
 	{
 		if (failed())
@@ -218,10 +218,10 @@ public:
 		if (det == 0)
 			return *this;
 		Matrix c(n, m, new double[n*m]);
-		for (int i = 0; i < n; i++)
-			for (int j = 0; j < m; j++)
+		for (int j = 0; j < n; j++)
+			for (int i = 0; i < m; i++)
 			{
-				c.set(i, j, powf(-1, i + j) * GetMinor_(j, i).determinant());
+				c.set(j, i, powf(-1, i + j) * GetMinor_(j, i).determinant());
 			}
 		c = c*pow(det, -1);
 		return Matrix(c);
@@ -272,4 +272,15 @@ ostream& operator <<(ostream &o, Matrix& a)
 		o << '\n' << endl;
 	}
 	return o;
+}
+
+int main() 
+{
+Matrix c;
+cin >> c;
+cout << c;
+cout << c.transpose();
+cout << c.determinant() << endl;
+cout << c.reverse();
+system("pause");
 }
