@@ -204,7 +204,7 @@ public:
 			{
 				for (int j = 0; j < m; j++)
 				{
-					c.set(i, j, this->get(j, i));
+					c.set(i, j, this->get(i, j));
 				}
 			}
 		}
