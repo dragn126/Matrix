@@ -88,10 +88,6 @@ Matrix operator+(Matrix& A)
         }
     return *C;
  }
-
-
-
-
  Matrix operator*(Matrix& A)
  {
     if(getM() !=n)
@@ -140,7 +136,7 @@ Matrix transpose()
    Matrix mat(n,m);
    for (int i = 0; i < n; i++)
       for (int j = 0; j < m; j++)
-		 mat.set(j, i, get(i, j));
+		 mat.set(i, j, get(j, i));
          return Matrix(mat);
  }
 
