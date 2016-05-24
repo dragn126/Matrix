@@ -7,7 +7,7 @@ class Matrix
 {
  int m;
  int n;
- float* data;
+ double* data;
 public:
  Matrix()
  {
@@ -20,7 +20,7 @@ public:
  {
      m = m_;
      n = n_;
-     data = new float[m*n];
+     data = new double[m*n];
      for(int i=0; i < m*n; i++)
      {
          data[i] = 0;
@@ -36,7 +36,7 @@ public:
  {
      m = A.m;
      n = A.n;
-     data = new float[n*m];
+     data = new double[n*m];
      for (int i = 0; i < n*m; i++)
          data[i] = A.data[i];
  }
@@ -47,7 +47,7 @@ public:
      m=A.m;
      n=A.n;
     delete data;
-     data=new float[m*n];
+     data=new double[m*n];
     for(int i = 0; i < A.getN()*A.getN(); i++)
     {
      set(i,0,A.get(i,0));
@@ -55,12 +55,12 @@ public:
     return *this;
  }
 
- float get(int i, int j)
+ double get(int i, int j)
  {
      return data[i+j*m];
  }
 
- void set(int i, int j, float d)
+ void set(int i, int j, double d)
  {
      this->data[i+j*m] = d;
  }
@@ -110,7 +110,7 @@ Matrix operator+(Matrix& A)
 
  }
 
- Matrix operator*(float& l)
+ Matrix operator*(double& l)
  {
     Matrix* B = new Matrix(m,n);
     for (int i = 0; i < m*n; i++)
@@ -137,22 +137,17 @@ Matrix operator+(Matrix& A)
 
 Matrix transpose()
  {
-   float* tmp = new float[n*m];
    Matrix mat(n,m);
-   mat.n = n;
-   mat.m = m;
    for (int i = 0; i < n; i++)
       for (int j = 0; j < m; j++)
-         tmp[i*m + j] = data[j*m + i];
-         mat.data = tmp;
+		 mat.set(j, i, get(i, j));
          return Matrix(mat);
-
  }
 
-virtual float determinant()
+virtual double determinant()
 {
     Matrix tmp = *this;
-    float k=0;
+    double k=0;
     int s;
     for(int l = 0; l < getM(); l++)
     {
@@ -184,7 +179,7 @@ virtual float determinant()
             }
     }
 
-    float det = get(0,0);
+    double det = get(0,0);
     for(int i = 1; i < getN(); i++)
       det *=tmp.get(i,i);
     cout << endl<< endl<<det<<endl;
@@ -201,7 +196,7 @@ virtual float determinant()
         return A;
     }
     int g;
-    float D =this->determinant();
+    double D =this->determinant();
     if(D == 0)
         {
             Matrix A;
@@ -249,7 +244,7 @@ return Matrix(A);
  {
      delete data;
      o >> m >> n;
-     float* d = new float[m*n];
+     double* d = new double[m*n];
      data = d;
      for (int i = 0; i < m*n; i++)
      {
@@ -273,4 +268,3 @@ Matrix* get_init(int n, int m)
     Matrix* q = new Matrix(n, m);
             return q;
 }
-
