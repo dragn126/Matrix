@@ -1,0 +1,74 @@
+In file included from cur.cpp:16:0:
+ruslan/mat.cpp:61:3: error: 't' does not name a type
+  }t
+   ^
+ruslan/mat.cpp: In member function 'Matrix Matrix::operator=(Matrix)':
+ruslan/mat.cpp:53:7: error: missing template arguments before '(' token
+    set(i, 0, A.get(i, 0));
+       ^
+ruslan/mat.cpp: In member function 'virtual float Matrix::determinant()':
+ruslan/mat.cpp:169:12: error: 'class Matrix' has no member named 'set'
+        tmp.set(z, l, tmp.get(z, s));
+            ^
+ruslan/mat.cpp:170:12: error: 'class Matrix' has no member named 'set'
+        tmp.set(z, s, k);
+            ^
+ruslan/mat.cpp:183:10: error: 'class Matrix' has no member named 'set'
+      tmp.set(j, i, tmp.get(j, i) - k*tmp.get(l, i));
+          ^
+ruslan/mat.cpp: In member function 'virtual Matrix Matrix::reverse()':
+ruslan/mat.cpp:226:9: error: 'class Matrix' has no member named 'set'
+       B.set(g, 0, this->get(j, i));
+         ^
+ruslan/mat.cpp:231:7: error: 'class Matrix' has no member named 'set'
+     A.set(l, k, B.determinant() / D);
+       ^
+ruslan/mat.cpp: In function 'Matrix* get_init(int, int)':
+ruslan/mat.cpp:273:41: error: no matching function for call to 'Matrix::Matrix(int&, int&, double*)'
+  return new Matrix(n, m, new double[n*m]);
+                                         ^
+ruslan/mat.cpp:273:41: note: candidates are:
+ruslan/mat.cpp:35:2: note: Matrix::Matrix(const Matrix&)
+  Matrix(const Matrix& A)
+  ^
+ruslan/mat.cpp:35:2: note:   candidate expects 1 argument, 3 provided
+ruslan/mat.cpp:19:2: note: Matrix::Matrix(int, int)
+  Matrix(int m_, int n_)
+  ^
+ruslan/mat.cpp:19:2: note:   candidate expects 2 arguments, 3 provided
+ruslan/mat.cpp:12:2: note: Matrix::Matrix()
+  Matrix()
+  ^
+ruslan/mat.cpp:12:2: note:   candidate expects 0 arguments, 3 provided
+ruslan/mat.cpp: At global scope:
+ruslan/mat.cpp:276:2: error: expected unqualified-id before '/' token
+ */int main()
+  ^
+ruslan/mat.cpp:276:2: error: expected constructor, destructor, or type conversion before '/' token
+ruslan/mat.cpp:285:3: error: expected unqualified-id before '/' token
+ }*/
+   ^
+ruslan/mat.cpp:285:3: error: expected constructor, destructor, or type conversion before '/' token
+cur.cpp: In member function 'virtual void MatrixTest_Reverse_Test::TestBody()':
+cur.cpp:32:10: error: 'class Matrix' has no member named 'set'
+       m->set(j,i,(i == j)?1:0);
+          ^
+cur.cpp:45:10: error: 'class Matrix' has no member named 'set'
+       m->set(j, i, j+1-i);
+          ^
+cur.cpp: In member function 'virtual void MatrixTest_Transpose_Test::TestBody()':
+cur.cpp:73:10: error: 'class Matrix' has no member named 'set'
+       m->set(j,i,cc++);
+          ^
+cur.cpp: In member function 'virtual void MatrixTest_SetGet_Test::TestBody()':
+cur.cpp:87:10: error: 'class Matrix' has no member named 'set'
+       m->set(j,i,c++);
+          ^
+cur.cpp: In member function 'virtual void MatrixTest_Determinant_Test::TestBody()':
+cur.cpp:125:10: error: 'class Matrix' has no member named 'set'
+       m->set(j,i,c++);
+          ^
+cur.cpp:137:10: error: 'class Matrix' has no member named 'set'
+       m->set(j,i, (i == j)? 1 : 0);
+          ^
+./check.sh: line 24: ./a.out: No such file or directory
