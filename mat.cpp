@@ -11,8 +11,8 @@ class Matrix
 public:
 	Matrix()
 	{
-		m = 1;
-		n = 1;
+		m = 0;
+		n = 0;
 		data = NULL;
 	}
 
