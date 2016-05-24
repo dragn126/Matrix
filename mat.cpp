@@ -133,9 +133,9 @@ public:
 
 	Matrix transpose()
 	{
-		Matrix mat(n, m);
-		for (int i = 0; i < n; i++)
-			for (int j = 0; j < m; j++)
+		Matrix mat(getN(), getM());
+		for (int j = 0; j < getN(); j++)
+			for (int i = 0; i < getM(); i++)
 				mat.set(j, i, get(i, j));
 		return Matrix(mat);
 	}
