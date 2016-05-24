@@ -7,7 +7,7 @@ class Matrix
 {
 	int m;
 	int n;
-	double* data;
+	float* data;
 public:
 	Matrix()
 	{
@@ -20,7 +20,7 @@ public:
 	{
 		m = m_;
 		n = n_;
-		data = new double[m*n];
+		data = new float[m*n];
 		for (int i = 0; i < m*n; i++)
 		{
 			data[i] = 0;
@@ -36,7 +36,7 @@ public:
 	{
 		m = A.m;
 		n = A.n;
-		data = new double[n*m];
+		data = new float[n*m];
 		for (int i = 0; i < n*m; i++)
 			data[i] = A.data[i];
 	}
@@ -47,7 +47,7 @@ public:
 		m = A.m;
 		n = A.n;
 		delete data;
-		data = new double[m*n];
+		data = new float[m*n];
 		for (int i = 0; i < A.getN()*A.getN(); i++)
 		{
 			set(i, 0, A.get(i, 0));
@@ -55,12 +55,12 @@ public:
 		return *this;
 	}
 
-	double get(int i, int j)
+	float get(int i, int j)
 	{
 		return data[i + j*m];
 	}
 
-	void set(int i, int j, double d)
+	void set(int i, int j, float d)
 	{
 		this->data[i + j*m] = d;
 	}
@@ -88,6 +88,10 @@ public:
 		}
 		return *C;
 	}
+
+
+
+
 	Matrix operator*(Matrix& A)
 	{
 		if (getM() != n)
@@ -106,7 +110,7 @@ public:
 
 	}
 
-	Matrix operator*(double& l)
+	Matrix operator*(float& l)
 	{
 		Matrix* B = new Matrix(m, n);
 		for (int i = 0; i < m*n; i++)
@@ -140,10 +144,10 @@ public:
 		return Matrix(mat);
 	}
 
-	virtual double determinant()
+	virtual float determinant()
 	{
 		Matrix tmp = *this;
-		double k = 0;
+		float k = 0;
 		int s;
 		for (int l = 0; l < getM(); l++)
 		{
@@ -175,7 +179,7 @@ public:
 			}
 		}
 
-		double det = get(0, 0);
+		float det = get(0, 0);
 		for (int i = 1; i < getN(); i++)
 			det *= tmp.get(i, i);
 		cout << endl << endl << det << endl;
@@ -192,7 +196,7 @@ public:
 			return A;
 		}
 		int g;
-		double D = this->determinant();
+		float D = this->determinant();
 		if (D == 0)
 		{
 			Matrix A;
@@ -214,12 +218,12 @@ public:
 					{
 						if (j == l) continue;
 						if (getN() <= i) break;
-						B.set(0, g, this->get(i, j));
-						cout << this->get(i, j);
+						B.set(g, 0, this->get(j, i));
+						cout << this->get(j, i);
 						g++;
 					}
 				}
-				A.set(l, k, B.determinant()*pow(-1, k+l) / D);
+				A.set(l, k, B.determinant()*pow(-1, k + l) / D);
 			}
 		}
 		return Matrix(A);
@@ -240,7 +244,7 @@ public:
 	{
 		delete data;
 		o >> m >> n;
-		double* d = new double[m*n];
+		float* d = new float[m*n];
 		data = d;
 		for (int i = 0; i < m*n; i++)
 		{
