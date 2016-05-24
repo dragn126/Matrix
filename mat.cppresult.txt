@@ -88,17 +88,17 @@ Expected: 1
 [ RUN      ] MatrixTest.Transpose
 cur.cpp:78: Failure
 Value of: (int)(c.get(i,j)+0.5)
-  Actual: 1
+  Actual: 0
 Expected: (int)(cc++)
 Which is: 9
 cur.cpp:78: Failure
 Value of: (int)(c.get(i,j)+0.5)
-  Actual: 2
+  Actual: 0
 Expected: (int)(cc++)
 Which is: 10
 cur.cpp:78: Failure
 Value of: (int)(c.get(i,j)+0.5)
-  Actual: 3
+  Actual: 0
 Expected: (int)(cc++)
 Which is: 11
 [  FAILED  ] MatrixTest.Transpose
